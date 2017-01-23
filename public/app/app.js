@@ -12,12 +12,3 @@ hostApp.config(function($routeProvider) {
 
 });
 
-// Create controller and inject angular's $scope
-hostApp.controller('mainController', function($scope) {
-$scope.message = 'Welcome to our home web server, Laura ;)';
-
-});
-
-hostApp.controller('aboutController', function($scope) {
-	$scope.message = 'This is the about Page.';
-});
