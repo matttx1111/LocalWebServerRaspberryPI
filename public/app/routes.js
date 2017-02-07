@@ -37,4 +37,5 @@ var Bus = require('./models/bus');
 	});	
 
 
-}
+	}
+require(./services/TripPlannerService);
