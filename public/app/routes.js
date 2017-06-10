@@ -1,7 +1,7 @@
 
 
 var Bus = require('./models/bus');
-
+var tripPlannerService = require('./services/TripPlannerService');
     module.exports = function(app) { 
 
 	// Server routes
@@ -9,6 +9,15 @@ var Bus = require('./models/bus');
 		res.json({ message: 'hooray! welcome to our api!' });
 	});
 	
+	app.get('/api/getNextScheduledBus', function (req, res) {
+		var message;
+		tripPlannerService.getNextScheduledBus(14,function(result){
+			message = result;
+			res.json({ message: message });
+		});
+		
+	});
+
 
 	//sample get
 	app.get('/api/bus', function(req, res) {
@@ -38,4 +47,4 @@ var Bus = require('./models/bus');
 
 
 	}
-require(./services/TripPlannerService);
+

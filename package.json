@@ -1,11 +1,28 @@
 {
-"name": "starter-node-angular",
-"main": "server.js",
-"dependencies": {
- "express": "~4.0.0",
- "morgan": "~1.0.0",
- "mongoose": "~3.8.0",
- "body-parser": "~1.0.0",
- "method-override": "~1.0.0"
-}
+  "name": "starter-node-angular",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1.0.0",
+    "express": "~4.0.0",
+    "method-override": "~1.0.0",
+    "mongodb": "^2.2.27",
+    "mongoose": "~3.8.0",
+    "morgan": "~1.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "version": "1.0.0",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matttx1111/LocalWebServerRaspberryPI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matttx1111/LocalWebServerRaspberryPI/issues"
+  },
+  "homepage": "https://github.com/matttx1111/LocalWebServerRaspberryPI#readme",
+  "description": ""
 }
