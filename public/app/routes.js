@@ -15,7 +15,6 @@ var tripPlannerService = require('./services/TripPlannerService');
 			message = result;
 			res.json({ message: message });
 		});
-		
 	});
 
 
