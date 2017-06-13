@@ -11,7 +11,7 @@ var tripPlannerService = require('./services/TripPlannerService');
 	
 	app.get('/api/getNextScheduledBus', function (req, res) {
 		var message;
-		tripPlannerService.getNextScheduledBus(14,function(result){
+		tripPlannerService.getNextScheduledBus(req.query.BusNr,function(result){
 			message = result;
 			res.json({ message: message });
 		});

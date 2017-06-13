@@ -3,19 +3,32 @@
 module.exports = {
 
 	getNextScheduledBus:  function (busId, callback) {
+		
+
+		var http = require('http');
+		var queryPath = '/bin/rest.exe/';
+
+
+		if (busId == 14) {
+			queryPath += '/bin/rest.exe/departureBoard?id=751418200';
+		} else if (busId == 15) {
+			queryPath += '/bin/rest.exe/departureBoard?id=751431400';//format=json';
+		}
+		var now = new Date()
+		queryPath += '&date=' + now.getDate() + '.' + (now.getMonth()+1) + '.' + now.getFullYear().toString().slice(2) + '&time=' + now.getHours() + ':' + now.getMinutes();
+
+		//var resultData = 
+		
+		//Find format
+		queryPath += '&format=json'
+
 		var options = {
 			host: 'xmlopen.rejseplanen.dk',
-			method: 'GET'
-			
+			method: 'GET',
+			path: queryPath
 		};
-		var http = require('http');
-		//var resultData = 
-		if (busId == 14) {
-			options.path = '/bin/rest.exe/departureBoard?id=751418200&date=10.06.17&time=12:50&format=json';
-		} else if (busId == 15) {
-			options.path = '/bin/rest.exe/departureBoard?id=751431400&date=07.02.17&time=12:50&format=json';
-		}
 
+		
 
 		var body = '';
 		var parsed;
@@ -26,12 +39,10 @@ module.exports = {
  			res.setEncoding('utf8');
 			res.on('data', function (chunk) {
 				body += chunk;
-				console.log('BODY: ' + chunk);
 			});
 
 			res.on('end', function() {
 				parsed = JSON.parse(body);
-				console.log(parsed);
 				callback(parsed)
 			})
 		});
