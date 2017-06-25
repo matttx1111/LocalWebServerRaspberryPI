@@ -43,7 +43,7 @@ module.exports = {
 
 			res.on('end', function() {
 				parsed = JSON.parse(body);
-				callback(parsed)
+				callback(parsed.DepartureBoard.Departure[0].time)
 			})
 		});
 
